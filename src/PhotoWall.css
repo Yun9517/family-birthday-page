@@ -1,0 +1,9 @@
+/* src/PhotoWall.css */
+
+.photo-wall-container .carousel .slide img {
+  /* Constrain the image size within the carousel */
+  max-height: 450px; /* You can adjust this value as needed */
+  width: auto !important; /* Override default carousel styles to maintain aspect ratio */
+  object-fit: contain; /* Ensure the whole image is visible without being cropped */
+  margin: auto; /* Center the image horizontally */
+}

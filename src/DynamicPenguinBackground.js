@@ -33,14 +33,18 @@ const DynamicPenguinBackground = () => {
   const [penguins, setPenguins] = useState([]);
 
   useEffect(() => {
-    const generatedPenguins = Array.from({ length: PENGUIN_COUNT }).map((_, i) => ({
-      id: i,
-      left: `${Math.random() * 100}vw`,
-      top: `${Math.random() * 100}vh`,
-      size: `${Math.random() * (100 - 50) + 50}px`, // Size between 50px and 100px
-      animationDelay: `${Math.random() * 10}s`, // Delay up to 10 seconds
-      animationDuration: `${Math.random() * (15 - 8) + 8}s`, // Duration between 8s and 15s
-    }));
+    const generatedPenguins = Array.from({ length: PENGUIN_COUNT }).map((_, i) => {
+      const penguinSize = Math.random() * (100 - 50) + 50; // Size in px
+      const maxLeft = window.innerWidth - penguinSize;
+      return {
+        id: i,
+        left: `${Math.random() * maxLeft}px`, // Constrain left position in pixels
+        top: `${Math.random() * 100}vh`,
+        size: `${penguinSize}px`,
+        animationDelay: `${Math.random() * 10}s`, // Delay up to 10 seconds
+        animationDuration: `${Math.random() * (15 - 8) + 8}s`, // Duration between 8s and 15s
+      };
+    });
     setPenguins(generatedPenguins);
   }, []);
 

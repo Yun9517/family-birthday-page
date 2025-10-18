@@ -2,7 +2,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%; /* Use 100% instead of 100vw to avoid scrollbar issues */
   height: 100vh;
   overflow: hidden;
   z-index: -1; /* Ensure it's behind other content */

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // import carousel styles
+import './PhotoWall.css'; // Import custom styles for the photo wall
 import photos from './photos'; // Import your photo data
 
 const PhotoWall = () => {
@@ -18,7 +19,6 @@ const PhotoWall = () => {
         {photos.map((photo) => (
           <div key={photo.id}>
             <img src={photo.src} alt={photo.alt} />
-            <p className="legend">{photo.description}</p>
           </div>
         ))}
       </Carousel>

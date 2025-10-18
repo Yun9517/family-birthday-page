@@ -4,6 +4,7 @@ import PhotoWall from './PhotoWall';
 import DynamicPenguinBackground from './DynamicPenguinBackground';
 import PasscodeGate from './PasscodeGate';
 import QuizGame from './QuizGame'; // Import QuizGame
+import BackgroundMusic from './BackgroundMusic'; // Import BackgroundMusic
 import './App.css';
 
 // For the top section birthday image
@@ -12,6 +13,7 @@ import './App.css';
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [currentPage, setCurrentPage] = useState('home'); // New state for navigation
+  const [isMusicPlaying, setIsMusicPlaying] = useState(false); // State for music
   const [windowDimension, setWindowDimension] = useState({
     width: window.innerWidth,
     height: window.innerHeight,
@@ -30,6 +32,7 @@ function App() {
 
   const handleAuthenticate = () => {
     setIsAuthenticated(true);
+    setIsMusicPlaying(true); // Start playing music on authentication
   };
 
   const navigateTo = (page) => {
@@ -41,70 +44,72 @@ function App() {
       <>
         <DynamicPenguinBackground />
         <PasscodeGate onAuthenticate={handleAuthenticate} />
+        <BackgroundMusic
+          src="/Happy_Birthday_in_Toronto.mp3"
+          isPlaying={isMusicPlaying}
+          onTogglePlay={setIsMusicPlaying}
+          visible={false} /* Hide button on passcode screen */
+        />
       </>
     );
   }
 
-  // Render QuizGame if currentPage is 'quiz'
-  if (currentPage === 'quiz') {
-    return (
-      <>
-        <DynamicPenguinBackground />
-        <QuizGame onGoHome={() => navigateTo('home')} />
-      </>
-    );
-  }
-
-  // Render Home Page
+  // After authentication, render a stable layout with persistent background and music player
   return (
     <>
       <DynamicPenguinBackground />
-      <main>
-        <Confetti
-          width={windowDimension.width}
-          height={windowDimension.height}
-          recycle={false}
-          numberOfPieces={200}
-          tweenDuration={10000}
-        />
-        <section className='main-container'>
-          {/* Top Section: Birthday Themed Image */}
-          <div className="top-birthday-section">
-            {/* User needs to place a birthday-themed image in src/assets/birthday-theme.jpg */}
-            {/* For now, using a placeholder or a simple message */}
-            <img
-              src="https://via.placeholder.com/500x200?text=Your+Birthday+Theme+Image"
-              alt="Birthday Theme"
-              style={{ maxWidth: '100%', height: 'auto', borderRadius: '10px' }}
-            />
-            {/* Or if using background image: */}
-            {/* <div className="birthday-theme-background"></div> */}
-            <h2 style={{ marginTop: '1rem', color: '#f0a04b' }}>生日快樂！</h2>
-            <p style={{ color: '#555' }}>歡迎來到我們的家庭生日派對網站！</p>
-            <button
-              onClick={() => navigateTo('quiz')}
-              style={{
-                backgroundColor: '#61dafb',
-                color: 'white',
-                padding: '10px 20px',
-                border: 'none',
-                borderRadius: '8px',
-                fontSize: '1rem',
-                cursor: 'pointer',
-                marginTop: '1rem',
-                transition: 'background-color 0.3s ease',
-              }}
-            >
-              開始企鵝小遊戲
-            </button>
+      <BackgroundMusic
+        src="/Happy_Birthday_in_Toronto.mp3"
+        isPlaying={isMusicPlaying}
+        onTogglePlay={setIsMusicPlaying}
+        visible={true} // Music button is visible after login
+      />
+
+      {/* Conditionally render the top part of the page */}
+      {currentPage === 'home' ? (
+        <section className="hero-section">
+          <Confetti
+            width={windowDimension.width}
+            height={windowDimension.height}
+            recycle={false}
+            numberOfPieces={200}
+            tweenDuration={10000}
+          />
+          <div className='main-container'>
+            <div className="top-birthday-section">
+              <h2 style={{ marginTop: '1rem', color: '#f0a04b' }}>生日快樂！</h2>
+              <p style={{ color: '#555' }}>歡迎來到我們的家庭生日派對網站！</p>
+              <button
+                onClick={() => navigateTo('quiz')}
+                style={{
+                  backgroundColor: '#61dafb',
+                  color: 'white',
+                  padding: '10px 20px',
+                  border: 'none',
+                  borderRadius: '8px',
+                  fontSize: '1rem',
+                  cursor: 'pointer',
+                  marginTop: '1rem',
+                  transition: 'background-color 0.3s ease',
+                }}
+              >
+                開始企鵝小遊戲
+              </button>
+            </div>
           </div>
-
-          <hr style={{ margin: '2rem 0', borderColor: '#eee' }} />
-
-          {/* Second Section: Photo Wall */}
-          <PhotoWall />
         </section>
-      </main>
+      ) : (
+        <section className="quiz-section">
+          <div className="main-container">
+            <QuizGame onGoHome={() => navigateTo('home')} />
+          </div>
+        </section>
+      )}
+
+      {/* PhotoWall is now always visible after login */}
+      <section className="photowall-section">
+        <PhotoWall />
+      </section>
     </>
   );
 }

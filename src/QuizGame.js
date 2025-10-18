@@ -54,7 +54,13 @@ const QuizGame = ({ onGoHome }) => {
   };
 
   if (questions.length === 0) {
-    return <div className="quiz-container">載入題目中...</div>;
+    return (
+      <div className="quiz-container">
+        <div className="quiz-card">
+          <h3>載入題目中...</h3>
+        </div>
+      </div>
+    );
   }
 
   const currentQuestion = questions[currentQuestionIndex];

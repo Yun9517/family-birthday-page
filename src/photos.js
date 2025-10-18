@@ -7,26 +7,21 @@
 // 為了讓網站能正常運行，請至少放入一張圖片並更新下方 src 的路徑。
 // 如果沒有圖片，可以暫時使用一個佔位符圖片的 URL。
 
+// 照片會從 `public` 資料夾讀取。
+// 如果您新增了照片到 `public` 資料夾，請依照以下格式添加到這個陣列中。
+
 const photos = [
   {
     id: 1,
-    src: 'https://via.placeholder.com/400x250?text=Your+Family+Photo+1', // 範例佔位符圖片
-    alt: '家庭合照 1',
-    description: '這是一張溫馨的家庭合照。',
+    src: '/birthday_01.jpg', // 照片路徑，相對於 public 資料夾
+    alt: '生日照片 1',
   },
-  {
-    id: 2,
-    src: 'https://via.placeholder.com/400x250?text=Your+Family+Photo+2', // 範例佔位符圖片
-    alt: '生日派對',
-    description: '去年生日派對的歡樂時光。',
-  },
-  {
-    id: 3,
-    src: 'https://via.placeholder.com/400x250?text=Your+Family+Photo+3', // 範例佔位符圖片
-    alt: '旅行回憶',
-    description: '全家一起出遊的美好回憶。',
-  },
-  // 請在這裡新增更多照片，並記得更新 src 路徑
+  // {
+  //   id: 2,
+  //   src: '/your_photo_name.jpg',
+  //   alt: '照片描述',
+  //   description: '關於這張照片的故事。',
+  // },
 ];
 
 export default photos;

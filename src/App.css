@@ -2,12 +2,9 @@
 
 body {
   font-family: 'Noto Sans TC', sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
   margin: 0;
-  /* Removed background-image, background-size, background-repeat as DynamicPenguinBackground component handles it */
+  background-color: #f0f2f5; /* Add a light background color */
+  /* Removed flex properties to allow natural scrolling */
 }
 
 .main-container {
@@ -65,8 +62,237 @@ h2 {
 }
 
 .top-birthday-section img {
+
   max-width: 100%;
+
   height: auto;
+
   border-radius: 10px;
+
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
 }
+
+
+
+/* Responsive Design for Small Screens */
+
+@media (max-width: 480px) {
+
+  .main-container {
+
+    width: 95%;
+
+    padding: 1rem;
+
+    margin: 10px auto;
+
+  }
+
+
+
+    h2 {
+
+
+
+      font-size: 1.5rem; /* Adjust heading size */
+
+
+
+      margin-bottom: 15px;
+
+
+
+    }
+
+
+
+  
+
+
+
+    h3 {
+
+
+
+      font-size: 1.3rem; /* Adjust subheading size */
+
+
+
+    }
+
+
+
+  
+
+
+
+    .birthday-item {
+
+
+
+      flex-direction: column; /* Stack items vertically */
+
+
+
+      align-items: flex-start;
+
+
+
+    }
+
+
+
+  .birthday-item .date {
+
+
+
+      margin-top: 5px;
+
+
+
+    }
+
+
+
+  }
+
+
+
+  
+
+
+
+  /* New section styles for App layout */
+
+
+
+  .hero-section {
+
+
+
+    min-height: 100vh;
+
+
+
+    display: flex;
+
+
+
+    flex-direction: column;
+
+
+
+    align-items: center;
+
+
+
+    justify-content: center;
+
+
+
+    padding: 20px 0;
+
+
+
+  }
+
+
+
+  
+
+
+
+  .quiz-section {
+
+
+
+    display: flex;
+
+
+
+    align-items: center;
+
+
+
+    justify-content: center;
+
+
+
+    padding: 20px 0;
+
+
+
+    min-height: 100vh; /* Ensure it takes up vertical space */
+
+
+
+  }
+
+
+
+  
+
+
+
+  .photowall-section {
+
+
+
+    background-color: #282c34; /* Dark background for contrast */
+
+
+
+    color: white;
+
+
+
+    padding: 4rem 1rem;
+
+
+
+    text-align: center;
+
+
+
+  }
+
+
+
+  
+
+
+
+  .photowall-section h3 {
+
+
+
+    color: white; /* Ensure the PhotoWall title is visible */
+
+
+
+    font-size: 2rem;
+
+
+
+    margin-bottom: 2rem;
+
+
+
+    border-bottom: 2px solid #61dafb; /* A nice accent color */
+
+
+
+    display: inline-block; /* To make border only as wide as text */
+
+
+
+    padding-bottom: 10px;
+
+
+
+  }
+
+
+
+  
