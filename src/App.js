@@ -45,7 +45,7 @@ function App() {
         <DynamicPenguinBackground />
         <PasscodeGate onAuthenticate={handleAuthenticate} />
         <BackgroundMusic
-          src="/Happy_Birthday_in_Toronto.mp3"
+          src={`${process.env.PUBLIC_URL}/Happy_Birthday_in_Toronto.mp3`}
           isPlaying={isMusicPlaying}
           onTogglePlay={setIsMusicPlaying}
           visible={false} /* Hide button on passcode screen */

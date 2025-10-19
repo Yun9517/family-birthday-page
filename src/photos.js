@@ -13,7 +13,7 @@
 const photos = [
   {
     id: 1,
-    src: '/birthday_01.jpg', // 照片路徑，相對於 public 資料夾
+    src: `${process.env.PUBLIC_URL}/birthday_01.jpg`, // 照片路徑，相對於 public 資料夾
     alt: '生日照片 1',
   },
   // {
