@@ -59,7 +59,7 @@ function App() {
     <>
       <DynamicPenguinBackground />
       <BackgroundMusic
-        src="/Happy_Birthday_in_Toronto.mp3"
+        src={`${process.env.PUBLIC_URL}/Happy_Birthday_in_Toronto.mp3`}
         isPlaying={isMusicPlaying}
         onTogglePlay={setIsMusicPlaying}
         visible={true} // Music button is visible after login
@@ -93,7 +93,7 @@ function App() {
                   transition: 'background-color 0.3s ease',
                 }}
               >
-                開始企鵝小遊戲
+                開始小遊戲
               </button>
             </div>
           </div>

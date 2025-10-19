@@ -48,7 +48,7 @@ const QuizGame = ({ onGoHome }) => {
   };
 
   const shareToLine = () => {
-    const text = `我在家庭企鵝小遊戲中獲得了 ${score} 分！快來挑戰！`;
+    const text = `我在家庭小遊戲中獲得了 ${score} 分！快來挑戰！`;
     const url = encodeURIComponent(window.location.href); // Share current page URL
     window.open(`https://social-plugins.line.me/lineit/share?url=${url}&text=${encodeURIComponent(text)}`, '_blank');
   };
@@ -69,7 +69,7 @@ const QuizGame = ({ onGoHome }) => {
     <div className="quiz-container">
       {!showResult ? (
         <div className="quiz-card">
-          <h3>企鵝小遊戲</h3>
+          <h3>家庭小遊戲</h3>
           <p className="question-number">
             第 {currentQuestionIndex + 1} 題 / 共 {questions.length} 題
           </p>
