@@ -30,6 +30,7 @@ const photos = [
     id: 4,
     src: `${process.env.PUBLIC_URL}/birthday_04.jpg`,
     alt: '龍蝦大餐',
+    description: '龍蝦大餐 at Toronto'
   },
   {
     id: 5,
