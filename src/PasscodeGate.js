@@ -12,9 +12,7 @@ const PasscodeGate = ({ onAuthenticate }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // For now, a hardcoded passcode.
-    // In a real app, this would be more secure (e.g., from Firebase, env variable).
-    const correctPasscode = 'penguin1022'; // You can change this!
+    const correctPasscode = process.env.REACT_APP_BIRTHDAY_PASSCODE;
 
     if (passcode === correctPasscode) {
       onAuthenticate(); // Call the parent's authentication function
