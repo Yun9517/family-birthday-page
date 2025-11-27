@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/family-birthday-page/static/css/main.ba41355b.css",
+    "main.css": "/family-birthday-page/static/css/main.c0bb6591.css",
     "main.js": "/family-birthday-page/static/js/main.0960052a.js",
     "static/js/453.ee67a203.chunk.js": "/family-birthday-page/static/js/453.ee67a203.chunk.js",
     "index.html": "/family-birthday-page/index.html",
-    "main.ba41355b.css.map": "/family-birthday-page/static/css/main.ba41355b.css.map",
+    "main.c0bb6591.css.map": "/family-birthday-page/static/css/main.c0bb6591.css.map",
     "main.0960052a.js.map": "/family-birthday-page/static/js/main.0960052a.js.map",
     "453.ee67a203.chunk.js.map": "/family-birthday-page/static/js/453.ee67a203.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ba41355b.css",
+    "static/css/main.c0bb6591.css",
     "static/js/main.0960052a.js"
   ]
 }
