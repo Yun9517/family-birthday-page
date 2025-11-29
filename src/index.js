@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import packageJson from '../package.json';
+
+console.log('App Version:', packageJson.version);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
